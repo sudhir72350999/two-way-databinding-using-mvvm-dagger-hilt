@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.twowaydatabinding.UserViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Two-way binding for EditText -->
+        <EditText
+            android:textSize="24sp"
+            android:text="@={viewModel.userInput}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- TextView to display whatever user types -->
+        <TextView
+            android:textSize="23sp"
+            android:text="@{viewModel.displayText}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:textSize="23sp"
+            android:text="@{viewModel.userInput}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!-- Button to update the TextView with the current EditText content -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Text"
+            android:onClick="@{() -> viewModel.updateDisplayText()}" />
+
+    </LinearLayout>
+</layout>
